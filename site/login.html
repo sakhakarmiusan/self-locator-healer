@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Login</title>
+  <style>
+    /* Inline CSS so elements are easy to move around when testing healing. */
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f4f6f8;
+      display: flex;
+      justify-content: center;
+      padding-top: 80px;
+    }
+    .card {
+      background: #fff;
+      padding: 32px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      width: 320px;
+    }
+    h1 { font-size: 20px; margin-top: 0; }
+    .field { margin-bottom: 16px; }
+    label { display: block; margin-bottom: 4px; font-size: 14px; }
+    input {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-size: 15px;
+      cursor: pointer;
+    }
+    .error { color: #b91c1c; margin-top: 12px; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Sign in to your account</h1>
+
+    <div class="field">
+      <label for="username">Username</label>
+      <input id="username" name="username" class="text-input" type="text" placeholder="Enter username" />
+    </div>
+
+    <div class="field">
+      <label for="password">Password</label>
+      <input id="password" name="password" class="text-input" type="password" placeholder="Enter password" />
+    </div>
+
+    <button id="login-btn" class="primary-btn" type="button">Log in</button>
+
+    <div id="error-msg" class="error" style="display: none;">Invalid username or password</div>
+  </div>
+
+  <script>
+    // Hardcoded credentials: this is a learning fixture, not a real login.
+    document.getElementById('login-btn').addEventListener('click', function () {
+      var user = document.getElementById('username').value;
+      var pass = document.getElementById('password').value;
+      if (user === 'admin' && pass === '1234') {
+        window.location.href = 'dashboard.html';
+      } else {
+        document.getElementById('error-msg').style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>
